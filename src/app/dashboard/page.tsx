@@ -1,6 +1,6 @@
 import Dashboard from "@/Components/Dashboard/Dashboard";
 import Player from "@/Components/Dashboard/Player";
-import Sidebar from "@/Components/Sidebar";
+import Sidebar from "@/Components/Sidebar/Sidebar";
 
 export default function Page() {
   return (

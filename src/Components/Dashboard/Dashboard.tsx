@@ -3,34 +3,40 @@
 import { useEffect, useState } from "react";;
 import { supabase } from '../../../supabase';
 import Converter from "./Converter";
+import { useUserDetails, useAudioURL } from "@/zustand/state";
+import SomeYoudios from "./SomeYoudios";
+import SignOut from "../SignOut";
+import { useRouter } from "next/navigation";
 
 export default function Dashboard() {
     const [userData, setUserData] = useState<any>()
+    const { updateUserDetails, userDetails } = useUserDetails((state: any) => state)
+
+    const router = useRouter()
 
     useEffect(() => {
         async function getUserData() {
-            const { data } = await supabase.auth.refreshSession()
-
-            setUserData(data.user)
+            const { data, error } = await supabase.auth.refreshSession();
+            if (data.user) {
+                updateUserDetails(data.user);
+            } else {
+                // console.log("X")
+                router.replace("/signIn")
+            }
         }
 
         getUserData()
     }, [])
 
-    // useEffect(() => {
-    //     async function addUserToDB() {
-    //         if (userData) {
-    //             if (userData.aud === "authenticated") {
-                    
-    //             }
-
-    //         }
-    //     }
-
-    //     addUserToDB()
-    // }, [userData])
+    // console.log(userDetails)
 
     return (
-        <Converter />
+        <section className="bg-[#121212] p-4 rounded-lg flex flex-col gap-8">
+            <div className="self-end">
+                <SignOut />
+            </div>
+            <Converter />
+            <SomeYoudios />
+        </section>
     )
 }

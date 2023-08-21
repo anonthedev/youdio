@@ -1,5 +1,6 @@
 // import { BiSearch } from "react-icons/bi"
 import { GoHome } from "react-icons/go"
+import LibraryPreview from "./LibraryPreview"
 
 export default function Sidebar() {
     return (
@@ -16,6 +17,7 @@ export default function Sidebar() {
             </ul>
             <div className="bg-[#121212] rounded-lg p-3 flex flex-col gap-6 w-100">
                 <h3>Your Library</h3>
+                <LibraryPreview/>
             </div>
         </section>
     )

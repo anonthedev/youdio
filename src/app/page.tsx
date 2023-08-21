@@ -11,13 +11,13 @@ export default function Home() {
     async function getUserData() {
       const { data, error } = await supabase.auth.refreshSession()
 
-      if (data) {
+      if (data.user) {
         if (data.user?.role === "authenticated") {
           router.replace("/dashboard")
         } else if (data.user?.role === "unauthenticated") {
           router.replace("/signIn")
         }
-      } else if (error) {
+      } else {
         router.replace("/signIn")
       }
     }
@@ -27,7 +27,7 @@ export default function Home() {
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24 text-white">
-      XYZ
+      youdio (Landing Page in progress.)
     </main>
   )
 }
