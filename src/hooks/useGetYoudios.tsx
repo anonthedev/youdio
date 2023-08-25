@@ -12,7 +12,7 @@ export default function useGetYoudios() {
     async function getYoudios() {
         let { data: user_data, error } = await supabase
             .from('user_data')
-            .select('youdio')
+            .select('youdio, id')
             .eq('email', userDetails.email)
 
         if (user_data) {

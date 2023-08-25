@@ -9,8 +9,8 @@ import SignOut from "../SignOut";
 import { useRouter } from "next/navigation";
 
 export default function Dashboard() {
-    const [userData, setUserData] = useState<any>()
-    const { updateUserDetails, userDetails } = useUserDetails((state: any) => state)
+    // const [userData, setUserData] = useState<any>()
+    const { updateUserDetails } = useUserDetails((state: any) => state)
 
     const router = useRouter()
 

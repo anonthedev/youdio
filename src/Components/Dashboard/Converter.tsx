@@ -5,15 +5,16 @@ import { useEffect, useState } from "react"
 import { supabase } from "../../../supabase"
 import { useAudioURL, useUserDetails } from "@/zustand/state"
 import useGetYoudios from "@/hooks/useGetYoudios"
+import Toast from "../Toast"
 
 export default function Converter() {
     const [videoURL, setVideoURL] = useState<string>("")
 
-    const { audioURL, convert } = useConverter()
-    const updateAudioURL = useAudioURL((state: any) => state.updateAudioURL)
+    const { convert } = useConverter()
     const { userDetails } = useUserDetails((state: any) => state)
-    const { duration } = useAudioURL((state: any) => state)
+    // const { duration } = useAudioURL((state: any) => state)
     const { getYoudios } = useGetYoudios()
+    const [converted, setConverted] = useState<boolean | null>()
 
     // useEffect(() => {
     //     updateAudioURL(audioURL)
@@ -22,6 +23,15 @@ export default function Converter() {
     // useEffect(() => {
     //     console.log(duration)
     // })
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setConverted(null)
+        }, 5000)
+        return () => {
+            clearTimeout(timer); // This will clear the timeout when the effect is cleaned up
+        };
+    })
 
     async function handleClick() {
         fetch(`https://www.youtube.com/oembed?url=${encodeURIComponent(videoURL)}&format=json`)
@@ -40,7 +50,7 @@ export default function Converter() {
                     .then(() => {
                         addYoudio(videoInfo)
                     })
-                    .catch((err) => { console.log(err) })
+                    .catch((err) => { setConverted(false) })
             })
             .catch((err) => { console.log(err) })
     }
@@ -62,9 +72,9 @@ export default function Converter() {
             .select()
         if (data) {
             getYoudios()
-            // console.log(data)
+            setConverted(true)
         } else {
-            console.log(error)
+            setConverted(false)
         }
     }
 
@@ -75,6 +85,7 @@ export default function Converter() {
                 <input className="text-black bg-white w-1/2 p-4 rounded-md" placeholder="Enter YouTube video URL" type="text" name="" id="" onChange={(e) => { setVideoURL(e.target.value) }} />
                 <button className="bg-white text-black font-semibold p-4 rounded-md" onClick={handleClick}>Convert</button>
             </div>
+            {converted ? <Toast toast="Conversion successful, youdio added" toastBG="#20c997" /> : converted === false ? <Toast toast="Couldn't convert item, Please try again." toastBG="#e03131" /> : null}
         </section>
     )
 }
