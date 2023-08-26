@@ -81,9 +81,9 @@ export default function Converter() {
     return (
         <section className="w-100 flex flex-col gap-5">
             <h2 className="text-4xl font-bold">Convert your videos</h2>
-            <div className="w-full flex flex-row gap-2">
-                <input className="text-black bg-white w-1/2 p-4 rounded-md" placeholder="Enter YouTube video URL" type="text" name="" id="" onChange={(e) => { setVideoURL(e.target.value) }} />
-                <button className="bg-white text-black font-semibold p-4 rounded-md" onClick={handleClick}>Convert</button>
+            <div className="w-full flex flex-row gap-2 md:flex-col">
+                <input className="text-black bg-white w-1/2 md:w-full p-4 rounded-md" placeholder="Enter YouTube video URL" type="text" name="" id="" onChange={(e) => { setVideoURL(e.target.value) }} />
+                <button className="bg-white text-black font-semibold p-4 rounded-md md:w-1/3" onClick={handleClick}>Convert</button>
             </div>
             {converted ? <Toast toast="Conversion successful, youdio added" toastBG="#20c997" /> : converted === false ? <Toast toast="Couldn't convert item, Please try again." toastBG="#e03131" /> : null}
         </section>

@@ -31,12 +31,13 @@ export default function Dashboard() {
     // console.log(userDetails)
 
     return (
-        <section className="bg-[#121212] p-4 rounded-lg flex flex-col gap-8">
+        <section className="bg-[#121212] p-4 rounded-lg flex flex-col gap-8 overflow-y-auto">
             <div className="self-end">
                 <SignOut />
             </div>
             <Converter />
             <SomeYoudios />
+            
         </section>
     )
 }

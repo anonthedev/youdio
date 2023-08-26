@@ -1,7 +1,7 @@
 import { create } from 'zustand'
 
 export const useAudioURL = create((set) => ({
-    audioURL: "",
+    GlobalAudioURL: "",
     skipTo: 0,
     duration: 0,
     updateAudioURL: (newURL: string) => set({ audioURL: newURL }),
