@@ -10,7 +10,7 @@ export default function Toast(
         <div className={`max-w-48 top-3 right-3 rounded-lg p-4 ${showToast ? "fixed" : "hidden"}`} style={{ backgroundColor: toastBG }}>
             <div className="flex flex-row gap-2 items-center">
                 <span className="text-sm font-semibold">
-                    &#9432; {toast}
+                    &#9432; {toast} 
                 </span>
                 <button onClick={() => {
                     if (showToast) {
