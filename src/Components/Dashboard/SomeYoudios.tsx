@@ -75,7 +75,7 @@ export default function SomeYoudios() {
                     <Loader /> Loading your youdios...
                 </div>}
             </div>
-            {itemDeleted ? <Toast toast="Item deleted successfully" toastBG="#20c997" /> : itemDeleted === false ? <Toast toast="Couldn't delete item, Please try again" toastBG="#e03131" /> : null}
+            {itemDeleted ? <Toast toast="Item deleted successfully" type="success" /> : itemDeleted === false ? <Toast toast="Couldn't delete item, Please try again" type="error" /> : null}
         </section>
     )
 }

@@ -85,7 +85,7 @@ export default function Converter() {
                 <input className="text-black bg-white w-1/2 md:w-full p-4 rounded-md" placeholder="Enter YouTube video URL" type="text" name="" id="" onChange={(e) => { setVideoURL(e.target.value) }} />
                 <button className="bg-white text-black font-semibold p-4 rounded-md md:w-1/3" onClick={handleClick}>Convert</button>
             </div>
-            {converted ? <Toast toast="Conversion successful, youdio added" toastBG="#20c997" /> : converted === false ? <Toast toast="Couldn't convert item, Please try again." toastBG="#e03131" /> : null}
+            {converted ? <Toast toast="Conversion successful, youdio added" type="success" /> : converted === false ? <Toast toast="Couldn't convert item, Please try again." type="error" /> : null}
         </section>
     )
 }
