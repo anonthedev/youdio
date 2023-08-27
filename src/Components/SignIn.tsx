@@ -30,7 +30,7 @@ export default function SignIn() {
                     theme="dark"
                     showLinks={false}
                     providers={[]}
-                    redirectTo="http://localhost:3000/auth/callback"
+                    redirectTo="https://youdio-delta.vercel.app/auth/callback"
                 />
             </div>
         </section>
