@@ -15,9 +15,10 @@ export default function Sidebar() {
                     <span>Search</span>
                 </li> */}
             </ul>
-            <div className="bg-[#121212] rounded-lg p-3 flex flex-col gap-6 w-100">
-                <h3>Your Library</h3>
-                <LibraryPreview/>
+            <div className="bg-[#121212] rounded-lg p-3 flex flex-col gap-6 w-100 flex-grow items-center justify-center">
+                {/* <h3>Your Library</h3>
+                <LibraryPreview/> */}
+                <p className="text-center text-xl">Work in progress 🫣🫣...</p>
             </div>
         </section>
     )

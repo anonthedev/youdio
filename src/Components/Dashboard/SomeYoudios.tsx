@@ -59,15 +59,15 @@ export default function SomeYoudios() {
     return (
         <section className="flex flex-col gap-5">
             <h2 className="text-3xl font-bold">Your Youdios</h2>
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-4 overflow-y-auto h-96 md:overflow-y-hidden md:h-auto">
                 {allYoudios ? allYoudios.map((youdio: any) => (
                     <div onClick={() => { convert(`https://youtube.com/watch?v=${youdio.youdio.youdio_id}`) }} key={youdio.id} className="flex flex-row gap-3 items-center cursor-pointer">
-                        <FaPlay />
+                        <FaPlay size={20} />
                         <div>
-                            <p className="text-gray-200 font-medium">{youdio.youdio.title.length >= 60 ? youdio.youdio.title.slice(0, -(youdio.youdio.title.length - 60)) + "..." : youdio.youdio.title}</p>
+                            <p className="text-gray-200 font-medium">{youdio.youdio.title.length >= 40 ? youdio.youdio.title.slice(0, -(youdio.youdio.title.length - 40)) + "..." : youdio.youdio.title}</p>
                             <p className="text-xs text-gray-500">{youdio.youdio.channelName}</p>
                         </div>
-                        <button onClick={() => { DeleteAYoudio(youdio.id) }} className="ml-auto">
+                        <button onClick={() => { DeleteAYoudio(youdio.id) }} className="ml-auto mr-2">
                             <MdDelete size={25} color="#c7020e" />
                         </button>
                     </div>

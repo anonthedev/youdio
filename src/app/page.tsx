@@ -3,6 +3,7 @@
 import { useEffect } from "react";;
 import { supabase } from '../../supabase';
 import { useRouter } from 'next/navigation';
+import Link from "next/link";
 
 export default function Home() {
   const router = useRouter()
@@ -14,11 +15,7 @@ export default function Home() {
       if (data.user) {
         if (data.user?.role === "authenticated") {
           router.replace("/dashboard")
-        } else if (data.user?.role === "unauthenticated") {
-          router.replace("/signIn")
         }
-      } else {
-        router.replace("/signIn")
       }
     }
 
@@ -26,8 +23,9 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24 text-white">
+    <main className="flex min-h-screen flex-col items-center justify-center gap-4 text-white">
       youdio (Landing Page in progress.)
+      <Link className="px-4 py-2 rounded-lg bg-[#121212]" href={"/signIn"}>Sign In</Link>
     </main>
   )
 }

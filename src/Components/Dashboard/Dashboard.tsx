@@ -31,7 +31,7 @@ export default function Dashboard() {
     // console.log(userDetails)
 
     return (
-        <section className="bg-[#121212] p-4 rounded-lg flex flex-col gap-8 overflow-y-auto">
+        <section className="bg-[#121212] p-4 rounded-lg flex flex-col gap-8 h-full mb-2">
             <div className="self-end">
                 <SignOut />
             </div>
