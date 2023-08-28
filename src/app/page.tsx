@@ -13,9 +13,12 @@ export default function Home() {
       const { data, error } = await supabase.auth.refreshSession()
 
       if (data.user) {
+        // console.log(data)
         if (data.user?.role === "authenticated") {
           router.replace("/dashboard")
         }
+      } else if (error) {
+        console.log(error) 
       }
     }
 

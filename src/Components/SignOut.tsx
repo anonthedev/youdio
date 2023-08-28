@@ -6,7 +6,7 @@ import { useState } from "react"
 import Toast from "./Toast"
 
 export default function SignOut() {
-    const [signOutFail, setSignOutFail] = useState<boolean>()
+    const [signOutFail, setSignOutFail] = useState<boolean>(false)
 
     const router = useRouter()
     async function handleSignOut() {
@@ -20,8 +20,8 @@ export default function SignOut() {
 
     return (
         <>
-        <button className="rounded-md bg-black text-white font-semibold px-3 py-2" onClick={handleSignOut}>Sign out</button>
-        <Toast toast="Sign out failed, Please try again!" type="error" />
+            <button className="rounded-md bg-black text-white font-semibold px-3 py-2" onClick={handleSignOut}>Sign out</button>
+            {signOutFail ? <Toast toast="Sign out failed, Please try again!" type="error" /> : null}
         </>
     )
 }

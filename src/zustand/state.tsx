@@ -1,10 +1,10 @@
 import { create } from 'zustand'
 
 export const useAudioURL = create((set) => ({
-    GlobalAudioURL: "",
+    globalAudioURL: "",
     skipTo: 0,
     duration: 0,
-    updateAudioURL: (newURL: string) => set({ audioURL: newURL }),
+    updateGlobalAudioURL: (newURL: string) => set({ globalAudioURL: newURL }),
     updateSkipTo: (seconds: number) => set({ skipTo: seconds }),
     updateDuration: (duration: number) => set({ duration: duration })
 }))

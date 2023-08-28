@@ -14,7 +14,7 @@ import { useRouter } from "next/navigation"
 export default function SomeYoudios() {
     const userDetails = useUserDetails((state: any) => state.userDetails)
     const { allYoudios } = useAllYoudios((state: any) => state)
-    const { GlobalAudioURL, updateAudioURL } = useAudioURL((state: any) => state)
+    const { GlobalAudioURL, updateGlobalAudioURL } = useAudioURL((state: any) => state)
     const { audioURL, convert } = useConverter()
     const { getYoudios } = useGetYoudios()
     const [itemDeleted, setItemDeleted] = useState<boolean | null>()
@@ -22,7 +22,7 @@ export default function SomeYoudios() {
     const router = useRouter()
 
     useEffect(() => {
-        updateAudioURL(audioURL)
+        updateGlobalAudioURL(audioURL)
     }, [audioURL])
 
     useEffect(() => {
@@ -64,7 +64,7 @@ export default function SomeYoudios() {
                     <div onClick={() => { convert(`https://youtube.com/watch?v=${youdio.youdio.youdio_id}`) }} key={youdio.id} className="flex flex-row gap-3 items-center cursor-pointer">
                         <FaPlay size={20} />
                         <div>
-                            <p className="text-gray-200 font-medium">{youdio.youdio.title.length >= 40 ? youdio.youdio.title.slice(0, -(youdio.youdio.title.length - 40)) + "..." : youdio.youdio.title}</p>
+                            <p className="text-gray-200 font-medium">{youdio.youdio.title.length > 40 ? youdio.youdio.title.slice(0, -(youdio.youdio.title.length - 40)) + "..." : youdio.youdio.title}</p>
                             <p className="text-xs text-gray-500">{youdio.youdio.channelName}</p>
                         </div>
                         <button onClick={() => { DeleteAYoudio(youdio.id) }} className="ml-auto mr-2">
