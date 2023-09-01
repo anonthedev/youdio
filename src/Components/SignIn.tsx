@@ -12,7 +12,7 @@ export default function SignIn() {
     const windowAvailable = typeof window !== "undefined";
     useEffect(()=>{
         if (windowAvailable) {
-            setRedirectURL(`${window.location.protocol + "//" + window.location.hostname}/auth/callback`)
+            setRedirectURL(`${window.location.origin}/auth/callback`)
         }
     }, [windowAvailable])
 

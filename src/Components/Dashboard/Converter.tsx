@@ -107,7 +107,7 @@ export default function Converter() {
     }
 
     return (
-        <section className="w-100 flex flex-col gap-5">
+        <section className="w-100 flex flex-col gap-5 font-golos">
             <h2 className="text-4xl font-bold">Convert your videos</h2>
             <div className="w-full flex flex-row gap-2 md:flex-col">
                 <input className="text-black bg-white w-1/2 md:w-full p-4 rounded-md" placeholder="Enter YouTube video URL" type="text" name="" id="" onChange={(e) => { setVideoURL(e.target.value) }} />
