@@ -5,20 +5,16 @@ import { ThemeSupa } from '@supabase/auth-ui-shared'
 // import { useState } from 'react';
 // import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { supabase } from '../../supabase';
+import { useEffect, useState } from 'react';
 
 export default function SignIn() {
-    // const supabase = createClientComponentClient();
-    // const [email, setEmail] = useState('')
-    // async function userSignIn() {
-    //     let { data, error } = await supabase.auth.signInWithOtp({
-    //         email: email,
-    //         options: {
-    //             emailRedirectTo: 'https://localhost:3000/dashboard'
-    //         }
-    //     })
-
-    //     console.log(data)
-    // }
+    const [redirectURL, setRedirectURL] = useState("")
+    const windowAvailable = typeof window !== "undefined";
+    useEffect(()=>{
+        if (windowAvailable) {
+            setRedirectURL(`${window.location.protocol + "//" + window.location.hostname}/auth/callback`)
+        }
+    }, [windowAvailable])
 
     return (
         <section className='h-screen flex items-center justify-center'>
@@ -30,7 +26,7 @@ export default function SignIn() {
                     theme="dark"
                     showLinks={false}
                     providers={[]}
-                    redirectTo={`${window.location.protocol + "//" + window.location.hostname}/auth/callback`}
+                    redirectTo={redirectURL}
                 />
             </div>
         </section>
