@@ -13,7 +13,7 @@ export default function LibraryPreview() {
     return (
         <section>
             <div>
-                <span>All youdios</span>
+                <span>Work in progress 🫣🫣🫣</span>
                 {/* <p>{userDetails.email}</p> */}
             </div>
         </section>
