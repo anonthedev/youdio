@@ -83,7 +83,7 @@ export default function Converter() {
         const videoId = videoURL.includes("?v=") ? videoURL.slice(videoURL.indexOf("?v=")).slice(3, 14) : videoURL.slice(videoURL.indexOf("youtu.be/")).slice(9, 20)
 
         const { data, error } = await supabase
-            .from('user_data')
+            .from('youdio_data')
             .insert(
                 {
                     email: userDetails.email,

@@ -9,7 +9,6 @@ import useGetYoudios from "@/hooks/useGetYoudios"
 import Toast from "../Toast"
 import Loader from "../Loader"
 import { useRouter } from "next/navigation"
-// import { UUID } from "crypto"
 
 export default function SomeYoudios() {
     const userDetails = useUserDetails((state: any) => state.userDetails)
@@ -44,7 +43,7 @@ export default function SomeYoudios() {
 
     async function DeleteAYoudio(id: string) {
         const { error } = await supabase
-            .from('user_data')
+            .from('youdio_data')
             .delete()
             .eq('id', `${id}`)
         if (!error) {

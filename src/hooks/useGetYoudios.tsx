@@ -10,13 +10,13 @@ export default function useGetYoudios() {
     const { userDetails } = useUserDetails((state: any) => state)
 
     async function getYoudios() {
-        let { data: user_data, error } = await supabase
-            .from('user_data')
+        let { data: youdio_data, error } = await supabase
+            .from('youdio_data')
             .select('youdio, id')
             .eq('email', userDetails.email)
 
-        if (user_data) {
-            updateAllYoudios(user_data)
+        if (youdio_data) {
+            updateAllYoudios(youdio_data)
         }
     }
 

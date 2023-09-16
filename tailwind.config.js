@@ -28,6 +28,7 @@ module.exports = {
       fontFamily: {
         gloock: ["var(--font-gloock)"],
         golos: ["var(--font-golos)"],
+        raleway: ["var(--font-raleway)"]
       }
     },
   },

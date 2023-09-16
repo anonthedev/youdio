@@ -1,6 +1,6 @@
 import "./globals.css";
 import Script from "next/script";
-import { Gloock, Golos_Text } from "next/font/google";
+import { Gloock, Golos_Text, Raleway } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 
 export const metadata = {
@@ -22,13 +22,19 @@ const golos = Golos_Text({
   weight: ["400", "500", "600", "700", "800", "900"],
 });
 
+const raleway = Raleway({
+  variable: "--font-raleway",
+  subsets: ["latin"],
+  display: "swap",
+});
+
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${gloock.variable} ${golos.variable}`}>
+    <html lang="en" className={`${gloock.variable} ${golos.variable} ${raleway.variable}`}>
       <body>
         {children}
         <Analytics />
