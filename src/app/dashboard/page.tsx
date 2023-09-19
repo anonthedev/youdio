@@ -20,11 +20,11 @@ export default function Page() {
 
       </main>
 
-      <main style={{height: "100svh"}} className="hidden lg:flex flex-col w-screen overflow-y-hidden">
-        <section className="bg-black p-2 flex-grow order-1 h-full pb-32">
+      <main style={{height: "100svh"}} className="hidden lg:flex flex-col w-screen">
+        <section className="bg-black p-2 flex-grow order-1 h-full ">
           <Dashboard />
         </section>
-        <section className="sticky bottom-0 order-2">
+        <section className="fixed bottom-0 order-2">
           <Player />
           <MobileSidebar />
         </section>

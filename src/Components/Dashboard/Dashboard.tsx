@@ -39,11 +39,11 @@ export default function Dashboard() {
 
     if (signedIn) {
         return (
-            <section className="bg-[#121212] p-4 rounded-lg flex flex-col gap-8 h-full mb-2">
+            <section className="bg-[#121212] p-4 rounded-lg flex flex-col gap-8 h-full mb-2 lg:h-fit">
                 <div className="self-end">
                     <SignOut />
                 </div>
-                <div className="flex flex-col gap-8 overflow-y-auto lg:max-h-[calc(100% - 100px)]">
+                <div className="flex flex-col gap-8 overflow-y-auto lg:overflow-y-hidden lg:mb-28">
                     <SearchVideos />
                     <span>OR</span>
                     <Converter />
