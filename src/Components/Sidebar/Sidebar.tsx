@@ -8,7 +8,7 @@ import Link from "next/link"
 
 export default function Sidebar() {
     return (
-        <section className="md:hidden w-1/5 flex flex-col gap-2">
+        <section className="lg:hidden w-1/5 flex flex-col gap-2">
             <ul className="bg-[#121212] rounded-lg py-3 px-5 flex flex-col gap-6 w-100">
                 <Link href={"/dashboard"} className="flex flex-row items-center gap-2 text-md text-gray-500">
                     <GoHome size={25} strokeWidth={0.75} />

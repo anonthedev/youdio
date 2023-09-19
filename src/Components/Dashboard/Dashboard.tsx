@@ -9,6 +9,7 @@ import SignOut from "../SignOut";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import Loader from "../Loader";
+import SearchVideos from "./SearchVideos";
 
 export default function Dashboard() {
     // const [userData, setUserData] = useState<any>()
@@ -42,8 +43,12 @@ export default function Dashboard() {
                 <div className="self-end">
                     <SignOut />
                 </div>
-                <Converter />
-                <SomeYoudios />
+                <div className="flex flex-col gap-8 overflow-y-auto lg:max-h-[calc(100% - 100px)]">
+                    <SearchVideos />
+                    <span>OR</span>
+                    <Converter />
+                    <SomeYoudios />
+                </div>
 
             </section>
         )

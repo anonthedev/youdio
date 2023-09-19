@@ -18,3 +18,8 @@ export const useAllYoudios = create((set) => ({
     allYoudios: null,
     updateAllYoudios: (youdios: any) => set({ allYoudios: youdios })
 }))
+
+export const useSearch = create((set) => ({
+    searchResults: null,
+    updateSearchResults: (results: any) => set({ searchResults: results })
+}))

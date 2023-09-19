@@ -58,7 +58,7 @@ export default function SomeYoudios() {
     return (
         <section className="flex flex-col gap-5 font-golos">
             <h2 className="text-3xl font-bold">Your Youdios</h2>
-            <div className="flex flex-col gap-4 overflow-y-auto h-96 md:overflow-y-hidden md:h-auto">
+            <div className="flex flex-col gap-4">
                 {allYoudios ? allYoudios.map((youdio: any) => (
                     <div onClick={() => { convert(`https://youtube.com/watch?v=${youdio.youdio.youdio_id}`) }} key={youdio.id} className="flex flex-row gap-3 items-center cursor-pointer">
                         <FaPlay size={20} />

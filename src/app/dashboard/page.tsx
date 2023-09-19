@@ -5,17 +5,30 @@ import Sidebar from "@/Components/Sidebar/Sidebar";
 
 export default function Page() {
   return (
-    <main className="flex flex-col w-screen h-screen">
-      <section className="bg-black flex flex-row w-full gap-2  p-2 pb-16 overflow-y-hidden md:overflow-y-auto md:flex-col md:pb-32">
-        <Sidebar />
-        <section className="flex-grow">
+    <>
+      <main className="lg:hidden flex flex-col w-screen h-screen lg:h-[100svh]">
+        <section className="bg-black flex flex-row w-full gap-2  p-2 pb-16 overflow-y-hidden lg:flex-col">
+          <Sidebar />
+          <section className="flex-grow">
+            <Dashboard />
+          </section>
+        </section>
+        <section className="lg:hidden fixed bottom-0">
+          <Player />
+          <MobileSidebar />
+        </section>
+
+      </main>
+
+      <main style={{height: "100svh"}} className="hidden lg:flex flex-col w-screen overflow-y-hidden">
+        <section className="bg-black p-2 flex-grow order-1 h-full pb-32">
           <Dashboard />
         </section>
-      </section>
-      <section className="fixed bottom-0">
-        <Player />
-        <MobileSidebar />
-      </section>
-    </main>
+        <section className="sticky bottom-0 order-2">
+          <Player />
+          <MobileSidebar />
+        </section>
+      </main>
+    </>
   )
 }
