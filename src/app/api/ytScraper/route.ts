@@ -2,7 +2,6 @@ import { NextRequest, NextResponse } from "next/server";
 const EventEmitter = require('events');
 const clientRequest = new EventEmitter();
 import puppeteer from "puppeteer-extra";
-const AdblockerPlugin = require("puppeteer-extra-plugin-adblocker");
 require('puppeteer-extra-plugin-stealth/evasions/chrome.app')
 require('puppeteer-extra-plugin-stealth/evasions/chrome.csi')
 require('puppeteer-extra-plugin-stealth/evasions/chrome.loadTimes')
@@ -21,6 +20,7 @@ require('puppeteer-extra-plugin-stealth/evasions/user-agent-override')
 require('puppeteer-extra-plugin-stealth/evasions/webgl.vendor')
 require('puppeteer-extra-plugin-stealth/evasions/window.outerdimensions')
 const StealthPlugin = require("puppeteer-extra-plugin-stealth");
+const AdblockerPlugin = require("puppeteer-extra-plugin-adblocker");
 
 export async function GET(req: NextRequest, res: NextResponse) {
   clientRequest.setMaxListeners(20);
@@ -68,6 +68,13 @@ export async function GET(req: NextRequest, res: NextResponse) {
   // }
   puppeteer.use(StealthPlugin());
   puppeteer.use(AdblockerPlugin({ blockTrackers: true }));
+  puppeteer.use(require('puppeteer-extra-plugin-user-preferences')({userPrefs: {
+    webkit: {
+      webprefs: {
+        default_font_size: 22
+      }
+    }
+  }}))
 
   const browser = await puppeteer.launch({ headless: "new" });
   const page = await browser.newPage();
