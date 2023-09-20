@@ -21,6 +21,8 @@ require('puppeteer-extra-plugin-stealth/evasions/webgl.vendor')
 require('puppeteer-extra-plugin-stealth/evasions/window.outerdimensions')
 const StealthPlugin = require("puppeteer-extra-plugin-stealth");
 const AdblockerPlugin = require("puppeteer-extra-plugin-adblocker");
+const UserPrefrence = require('puppeteer-extra-plugin-user-preferences')
+
 
 export async function GET(req: NextRequest, res: NextResponse) {
   clientRequest.setMaxListeners(20);
@@ -68,7 +70,7 @@ export async function GET(req: NextRequest, res: NextResponse) {
   // }
   puppeteer.use(StealthPlugin());
   puppeteer.use(AdblockerPlugin({ blockTrackers: true }));
-  puppeteer.use(require('puppeteer-extra-plugin-user-preferences')({userPrefs: {
+  puppeteer.use(UserPrefrence({userPrefs: {
     webkit: {
       webprefs: {
         default_font_size: 22
