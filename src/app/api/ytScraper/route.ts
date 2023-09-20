@@ -3,12 +3,11 @@ const EventEmitter = require('events');
 const clientRequest = new EventEmitter();
 import puppeteer from "puppeteer-extra";
 const AdblockerPlugin = require("puppeteer-extra-plugin-adblocker");
-const StealthPlugin = require("puppeteer-extra-plugin-stealth");
 require('puppeteer-extra-plugin-stealth/evasions/chrome.app')
 require('puppeteer-extra-plugin-stealth/evasions/chrome.csi')
 require('puppeteer-extra-plugin-stealth/evasions/chrome.loadTimes')
 require('puppeteer-extra-plugin-stealth/evasions/chrome.runtime')
-require('puppeteer-extra-plugin-stealth/evasions/defaultArgs') // pkg warned me this one was missing
+require('puppeteer-extra-plugin-stealth/evasions/defaultArgs')
 require('puppeteer-extra-plugin-stealth/evasions/iframe.contentWindow')
 require('puppeteer-extra-plugin-stealth/evasions/media.codecs')
 require('puppeteer-extra-plugin-stealth/evasions/navigator.hardwareConcurrency')
@@ -21,6 +20,7 @@ require('puppeteer-extra-plugin-stealth/evasions/sourceurl')
 require('puppeteer-extra-plugin-stealth/evasions/user-agent-override')
 require('puppeteer-extra-plugin-stealth/evasions/webgl.vendor')
 require('puppeteer-extra-plugin-stealth/evasions/window.outerdimensions')
+const StealthPlugin = require("puppeteer-extra-plugin-stealth");
 
 export async function GET(req: NextRequest, res: NextResponse) {
   clientRequest.setMaxListeners(20);
