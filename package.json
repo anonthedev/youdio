@@ -34,5 +34,8 @@
     "typescript": "5.1.6",
     "ytdl-core": "^4.11.5",
     "zustand": "^4.4.1"
+  },
+  "devDependencies": {
+    "encoding": "^0.1.13"
   }
 }
