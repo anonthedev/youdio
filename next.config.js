@@ -7,7 +7,7 @@ const nextConfig = {
       "puppeteer-extra-plugin-stealth",
       "puppeteer-extra-plugin-adblocker",
       "puppeteer-extra-plugin-user-preferences",
-      "puppeteer-extra-plugin-user-data-dir"         
+      "puppeteer-extra-plugin-user-data-dir",        
     ],
   },
 };

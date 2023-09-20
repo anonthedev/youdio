@@ -19,6 +19,7 @@ require('puppeteer-extra-plugin-stealth/evasions/sourceurl')
 require('puppeteer-extra-plugin-stealth/evasions/user-agent-override')
 require('puppeteer-extra-plugin-stealth/evasions/webgl.vendor')
 require('puppeteer-extra-plugin-stealth/evasions/window.outerdimensions')
+require("puppeteer-extra-plugin-user-data-dir")
 const StealthPlugin = require("puppeteer-extra-plugin-stealth");
 const AdblockerPlugin = require("puppeteer-extra-plugin-adblocker");
 const UserPrefrence = require('puppeteer-extra-plugin-user-preferences')
@@ -78,7 +79,9 @@ export async function GET(req: NextRequest, res: NextResponse) {
     }
   }}))
 
-  const browser = await puppeteer.launch({ headless: "new" });
+  const browser = await puppeteer.launch({
+    headless: "new"
+  });
   const page = await browser.newPage();
   await page.goto(`https://www.youtube.com/results?search_query=${query}`);
   await page.waitForSelector("#contents");
