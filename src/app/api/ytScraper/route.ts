@@ -1,11 +1,14 @@
 import { NextRequest, NextResponse } from "next/server";
 import puppeteer from "puppeteer-extra";
-const AdblockerPlugin = require('puppeteer-extra-plugin-adblocker')
-const StealthPlugin = require('puppeteer-extra-plugin-stealth')
+const AdblockerPlugin = require("puppeteer-extra-plugin-adblocker");
+const StealthPlugin = require("puppeteer-extra-plugin-stealth");
+const EventEmitter = require('events');
+const clientRequest = new EventEmitter();
 // import * as cheerio from "cheerio";
 // import axios from "axios";
 
 export async function GET(req: NextRequest, res: NextResponse) {
+  clientRequest.setMaxListeners(20);
   const query = req.nextUrl.searchParams.get("query")!;
   // const encodedQuery = encodeURIComponent(query);
   // const url = `https://www.youtube.com/results?search_query=${encodedQuery}`;
@@ -48,8 +51,8 @@ export async function GET(req: NextRequest, res: NextResponse) {
   //   console.log(error);
   //   return NextResponse.json({ message: "Error" });
   // }
-  puppeteer.use(StealthPlugin())
-  puppeteer.use(AdblockerPlugin({blockTrackers: true}))
+  puppeteer.use(StealthPlugin());
+  puppeteer.use(AdblockerPlugin({ blockTrackers: true }));
 
   const browser = await puppeteer.launch({ headless: "new" });
   const page = await browser.newPage();
@@ -81,6 +84,6 @@ export async function GET(req: NextRequest, res: NextResponse) {
       })
   );
 
-  await browser.close();
+  await browser.close()
   return NextResponse.json(videosData);
 }
