@@ -8,9 +8,6 @@
     "start": "next start",
     "lint": "next lint"
   },
-  "pkg": {
-    "assets": "node_modules/puppeteer-extra-plugin-stealth/**/*.*"
-  },
   "dependencies": {
     "@supabase/auth-helpers-nextjs": "^0.7.4",
     "@supabase/auth-ui-react": "^0.4.2",
@@ -26,13 +23,6 @@
     "eslint-config-next": "13.4.16",
     "next": "13.4.16",
     "postcss": "8.4.27",
-    "puppeteer": "^21.3.1",
-    "puppeteer-core": "^21.3.1",
-    "puppeteer-extra": "^3.3.6",
-    "puppeteer-extra-plugin-adblocker": "^2.13.6",
-    "puppeteer-extra-plugin-stealth": "^2.11.2",
-    "puppeteer-extra-plugin-user-data-dir": "^2.4.1",
-    "puppeteer-extra-plugin-user-preferences": "^2.4.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-icons": "^4.10.1",

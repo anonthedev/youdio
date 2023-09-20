@@ -37,6 +37,12 @@ export default function Dashboard() {
         getUserData().then(() => { setLoading(false) })
     }, [])
 
+    // useEffect(() => {
+    //     fetch("httpslocalhost:8000/api/ytSearchResultScraper")
+    //         .then((data) => data.json())
+    //         .then((resp) => { console.log(resp) })
+    // }, [])
+
     if (signedIn) {
         return (
             <section className="bg-[#121212] p-4 rounded-lg flex flex-col gap-8 h-full mb-2 lg:h-fit">
@@ -44,7 +50,7 @@ export default function Dashboard() {
                     <SignOut />
                 </div>
                 <div className="flex flex-col gap-8 overflow-y-auto lg:overflow-y-hidden lg:mb-28">
-                    {/* <SearchVideos /> */}
+                    <SearchVideos />
                     <span>OR</span>
                     <Converter />
                     <SomeYoudios />

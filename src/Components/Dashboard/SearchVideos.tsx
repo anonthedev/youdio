@@ -30,9 +30,9 @@ export default function SearchVideos() {
     async function handleClick() {
         if (searchQuery !== "") {
             setSearching(true)
-            await axios.get(`/api/ytScraper?query=${searchQuery}`)
+            await axios.get(`http://localhost:8000/api/ytSearchResultScraper?query=${searchQuery}`)
                 .then((results) => {
-                    updateSearchResults(results.data)
+                    updateSearchResults(results.data.videosData)
                     // console.log(results.data)
                 })
                 .then(() => {
