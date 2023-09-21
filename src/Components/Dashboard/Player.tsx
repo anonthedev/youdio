@@ -18,7 +18,7 @@ export default function Player() {
 
     return (
         <div className="w-screen">
-            <audio ref={audioRef} className="w-full rounded-none" src={globalAudioURL} controls></audio>
+            <audio autoPlay ref={audioRef} className="w-full rounded-none" src={globalAudioURL} controls></audio>
         </div>
     )
 }
