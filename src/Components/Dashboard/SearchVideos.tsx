@@ -30,7 +30,7 @@ export default function SearchVideos() {
     async function handleClick() {
         if (searchQuery !== "") {
             setSearching(true)
-            await axios.get(`http://localhost:8000/api/ytSearchResultScraper?query=${searchQuery}`)
+            await axios.get(`https://youdio-backend.up.railway.app/api/ytSearchResultScraper?query=${searchQuery}`)
                 .then((results) => {
                     updateSearchResults(results.data.videosData)
                     // console.log(results.data)
