@@ -54,7 +54,11 @@ export default function SearchVideos() {
             setYoudioExists(true)
             setConverting(false)
         } else {
-            addYoudio(searchResults[index])
+            convert(searchResults[index].videoURL)
+                .then(() => {
+                    const added = addYoudio(searchResults[index])
+                    return added
+                })
                 .then((added) => {
                     if (added) {
                         getYoudios()
@@ -64,6 +68,10 @@ export default function SearchVideos() {
                         setConverting(false)
                         setConverted(false)
                     }
+                })
+                .catch((err) => {
+                    setConverting(false)
+                    setConverted(false)
                 })
         }
     }
