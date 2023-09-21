@@ -6,7 +6,7 @@ export async function GET(req: NextRequest, res: NextResponse) {
 
   try {
     const info = await ytdl.getInfo(url as string);
-    const audioFormat = ytdl.chooseFormat(info.formats, { filter: 'audioonly' });
+    const audioFormat = ytdl.chooseFormat(info.formats, { filter: 'audioonly', quality: 'highestaudio' });
 
     if (audioFormat) {
        return NextResponse.json(audioFormat.url);

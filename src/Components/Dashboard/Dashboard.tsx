@@ -3,21 +3,20 @@
 import { useEffect, useState } from "react";;
 import { supabase } from '../../../supabase';
 import Converter from "./Converter";
-import { useUserDetails, useAudioURL } from "@/zustand/state";
+import { useUserDetails } from "@/zustand/state";
 import SomeYoudios from "./SomeYoudios";
 import SignOut from "../SignOut";
-import { useRouter } from "next/navigation";
+// import { useRouter } from "next/navigation";
 import Link from "next/link";
 import Loader from "../Loader";
 import SearchVideos from "./SearchVideos";
 
 export default function Dashboard() {
-    // const [userData, setUserData] = useState<any>()
     const { updateUserDetails } = useUserDetails((state: any) => state)
     const [signedIn, setSignedIn] = useState<boolean>()
     const [loading, setLoading] = useState<boolean>()
 
-    const router = useRouter()
+    // const router = useRouter()
 
     useEffect(() => {
         setLoading(true)
@@ -36,12 +35,6 @@ export default function Dashboard() {
 
         getUserData().then(() => { setLoading(false) })
     }, [])
-
-    // useEffect(() => {
-    //     fetch("httpslocalhost:8000/api/ytSearchResultScraper")
-    //         .then((data) => data.json())
-    //         .then((resp) => { console.log(resp) })
-    // }, [])
 
     if (signedIn) {
         return (

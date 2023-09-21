@@ -2,7 +2,7 @@
 
 import useConverter from "@/hooks/useConverter"
 import { useEffect, useState } from "react"
-import { supabase } from "../../../supabase"
+// import { supabase } from "../../../supabase"
 import { useAudioURL, useUserDetails, useAllYoudios } from "@/zustand/state"
 import useGetYoudios from "@/hooks/useGetYoudios"
 import Toast from "../Toast"

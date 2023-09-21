@@ -10,6 +10,8 @@ import Toast from "../Toast"
 import Loader from "../Loader"
 import { useRouter } from "next/navigation"
 
+import { YoudioWithId } from "../../../types"
+
 export default function SomeYoudios() {
     const userDetails = useUserDetails((state: any) => state.userDetails)
     const { allYoudios } = useAllYoudios((state: any) => state)
@@ -59,7 +61,7 @@ export default function SomeYoudios() {
         <section className="flex flex-col gap-5 font-golos">
             <h2 className="text-3xl font-bold">Your Youdios</h2>
             <div className="flex flex-col gap-4">
-                {allYoudios ? allYoudios.map((youdio: any) => (
+                {allYoudios ? allYoudios.map((youdio: YoudioWithId) => (
                     <div onClick={() => { convert(`https://youtube.com/watch?v=${youdio.youdio.youdio_id}`) }} key={youdio.id} className="flex flex-row gap-3 items-center cursor-pointer">
                         <FaPlay size={20} />
                         <div>

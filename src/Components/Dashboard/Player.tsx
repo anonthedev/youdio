@@ -7,9 +7,9 @@ export default function Player() {
     const { globalAudioURL, skipTo, updateDuration, duration } = useAudioURL((state: any) => state)
     const audioRef = useRef<HTMLAudioElement | null>(null)
     
-    useEffect(() => {
-        audioRef.current!.currentTime = skipTo
-    }, [skipTo, globalAudioURL])
+    // useEffect(() => {
+    //     audioRef.current!.currentTime = skipTo
+    // }, [skipTo, globalAudioURL])
 
     useEffect(() => {
         updateDuration(Math.floor(audioRef.current!.duration))
