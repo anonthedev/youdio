@@ -3,7 +3,7 @@
 import { useEffect } from "react";;
 import { supabase } from '../../supabase';
 import { useRouter } from 'next/navigation';
-import Link from "next/link";
+// import Link from "next/link";
 import LandingPage from "@/Components/LandingPage/LandingPage";
 
 export default function Home() {
