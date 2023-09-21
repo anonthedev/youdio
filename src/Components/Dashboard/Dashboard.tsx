@@ -6,10 +6,13 @@ import Converter from "./Converter";
 import { useUserDetails } from "@/zustand/state";
 import SomeYoudios from "./SomeYoudios";
 import SignOut from "../SignOut";
+import Image from "next/image";
 // import { useRouter } from "next/navigation";
 import Link from "next/link";
 import Loader from "../Loader";
 import SearchVideos from "./SearchVideos";
+import BuyMeACoffee from "../BuyMeACoffee";
+import Script from "next/script";
 
 export default function Dashboard() {
     const { updateUserDetails } = useUserDetails((state: any) => state)
@@ -39,8 +42,19 @@ export default function Dashboard() {
     if (signedIn) {
         return (
             <section className="bg-[#121212] p-4 rounded-lg flex flex-col gap-8 h-full mb-2 lg:h-fit">
-                <div className="self-end">
-                    <SignOut />
+                <div className="flex flex-row justify-between items-center">
+                    <a href="https://www.buymeacoffee.com/anonthedev" target="_blank">
+                        <Image
+                            src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png"
+                            alt="Buy Me A Coffee"
+                            width={145}
+                            height={30}
+                        />
+                    </a>
+                    {/* <BuyMeACoffee/> */}
+                    <div className="self-end">
+                        <SignOut />
+                    </div>
                 </div>
                 <div className="flex flex-col gap-8 overflow-y-auto lg:overflow-y-hidden lg:mb-28">
                     <SearchVideos />

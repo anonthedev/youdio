@@ -10,6 +10,17 @@ const nextConfig = {
     //   "puppeteer-extra-plugin-user-data-dir",        
     // ],
   },
+  images: {
+    formats: ["image/avif", "image/webp"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "cdn.buymeacoffee.com",
+        port: "",
+        pathname: "/buttons/v2/**",
+      },
+    ],
+  },
 };
 
 module.exports = nextConfig;
